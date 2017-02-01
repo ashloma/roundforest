@@ -9,7 +9,7 @@ import java.util.List;
 import static com.roudforest.utils.ApplicationStringUtils.getNullIfEmpty;
 
 @Component
-public class ReviewDataCommand {
+public class ReviewDataExtractor {
 
     private static final String SKIP_LINE = "Id";
 

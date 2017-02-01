@@ -23,7 +23,7 @@ public class ReviewReader {
     private static final Log LOGGER = LogFactory.getLog(ReviewReader.class);
 
     @Autowired
-    private ReviewDataCommand reviewDataCommand;
+    private ReviewDataExtractor reviewDataCommand;
     @Autowired
     private ReviewRepository reviewRepository;
 
