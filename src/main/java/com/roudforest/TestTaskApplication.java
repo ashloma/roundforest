@@ -1,12 +1,14 @@
 package com.roudforest;
 
 import com.roudforest.service.RunnerService;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@EnableBatchProcessing
 public class TestTaskApplication implements CommandLineRunner {
 
     @Autowired

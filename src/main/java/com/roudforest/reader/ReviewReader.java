@@ -44,10 +44,14 @@ public class ReviewReader {
     }
 
     private void processFile(CSVReader reader) throws IOException {
-        String[] nextLine;
-        long start = System.currentTimeMillis();
         LOGGER.info("Start processing file");
         List<Review> batchList = Lists.newArrayList();
+        readFile(reader, batchList);
+        LOGGER.info("Processing file completed");
+    }
+
+    private void readFile(CSVReader reader, List<Review> batchList) throws IOException {
+        String[] nextLine;
         while ((nextLine = reader.readNext()) != null) {
             Review review = reviewDataCommand.parseReview(Arrays.asList(nextLine));
             saveBatch(batchList, review);
@@ -55,8 +59,6 @@ public class ReviewReader {
         if (!batchList.isEmpty()) {
             reviewRepository.save(batchList);
         }
-        LOGGER.info("Processing file completed");
-        System.out.println(System.currentTimeMillis() - start);
     }
 
     private void saveBatch(List<Review> batchList, Review review) {
